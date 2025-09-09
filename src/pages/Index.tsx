@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { Badge } from '@/components/ui/badge';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   const slides = [
@@ -53,13 +54,47 @@ const Index = () => {
           <p className="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in">
             Самые экстремальные водные аттракционы в мире
           </p>
-          <Button size="lg" className="bg-orange-accent hover:bg-orange-accent/90 text-white px-8 py-4 text-lg animate-scale-in">
+          <Button asChild size="lg" className="bg-orange-accent hover:bg-orange-accent/90 text-white px-8 py-4 text-lg animate-scale-in">
+            <Link to="/tickets">
             <Icon name="Zap" className="mr-2" size={24} />
             Почувствуй адреналин
+            </Link>
           </Button>
         </div>
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
           <Icon name="ChevronDown" size={32} className="text-white/70" />
+        </div>
+      </section>
+
+      {/* Quick Info Sections */}
+      <section className="py-16 px-4 bg-gradient-to-r from-aqua-blue to-bright-blue text-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="text-center">
+              <Icon name="Clock" size={48} className="mx-auto mb-4" />
+              <h3 className="text-xl font-bold mb-2">Режим работы</h3>
+              <p className="opacity-90">Ежедневно 9:00-22:00</p>
+              <Link to="/schedule" className="text-orange-accent hover:underline text-sm">Подробнее</Link>
+            </div>
+            <div className="text-center">
+              <Icon name="Thermometer" size={48} className="mx-auto mb-4" />
+              <h3 className="text-xl font-bold mb-2">Температура воды</h3>
+              <p className="opacity-90">+28°C круглый год</p>
+              <Link to="/weather" className="text-orange-accent hover:underline text-sm">Погода</Link>
+            </div>
+            <div className="text-center">
+              <Icon name="Car" size={48} className="mx-auto mb-4" />
+              <h3 className="text-xl font-bold mb-2">Парковка</h3>
+              <p className="opacity-90">Бесплатная на 500 мест</p>
+              <Link to="/parking" className="text-orange-accent hover:underline text-sm">Схема</Link>
+            </div>
+            <div className="text-center">
+              <Icon name="Shield" size={48} className="mx-auto mb-4" />
+              <h3 className="text-xl font-bold mb-2">Безопасность</h3>
+              <p className="opacity-90">Сертифицированные спасатели</p>
+              <Link to="/safety" className="text-orange-accent hover:underline text-sm">Правила</Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -128,15 +163,179 @@ const Index = () => {
                           ))}
                         </div>
                       </div>
-                      <Button className="w-full bg-aqua-blue hover:bg-bright-blue">
+                      <Button asChild className="w-full bg-aqua-blue hover:bg-bright-blue">
+                        <Link to="/slides">
                         <Icon name="Play" className="mr-2" size={16} />
                         Смотреть видео
+                        </Link>
                       </Button>
                     </CardContent>
                   </div>
                 </div>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* News & Events Section */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-deep-blue mb-6">Новости и события</h2>
+            <p className="text-lg text-gray-600">Актуальная информация и предстоящие мероприятия</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="hover:shadow-lg transition-all duration-300">
+              <CardContent className="p-6">
+                <Badge className="mb-4 bg-orange-accent text-white">НОВИНКА</Badge>
+                <h3 className="text-xl font-bold text-deep-blue mb-3">Новая горка "Космический вихрь"</h3>
+                <p className="text-gray-600 mb-4">Открытие самой высокой горки в России - 35 метров экстрима!</p>
+                <Link to="/news" className="text-aqua-blue hover:underline font-medium">Читать далее →</Link>
+              </CardContent>
+            </Card>
+            <Card className="hover:shadow-lg transition-all duration-300">
+              <CardContent className="p-6">
+                <Badge className="mb-4 bg-green-500 text-white">АКЦИЯ</Badge>
+                <h3 className="text-xl font-bold text-deep-blue mb-3">Семейные выходные</h3>
+                <p className="text-gray-600 mb-4">Скидка 30% на семейные билеты по выходным в марте</p>
+                <Link to="/tickets" className="text-aqua-blue hover:underline font-medium">Купить билет →</Link>
+              </CardContent>
+            </Card>
+            <Card className="hover:shadow-lg transition-all duration-300">
+              <CardContent className="p-6">
+                <Badge className="mb-4 bg-purple-500 text-white">СОБЫТИЕ</Badge>
+                <h3 className="text-xl font-bold text-deep-blue mb-3">Ночь в аквапарке</h3>
+                <p className="text-gray-600 mb-4">Специальное мероприятие для взрослых с 22:00 до 2:00</p>
+                <Link to="/events" className="text-aqua-blue hover:underline font-medium">Подробности →</Link>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Overview */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-deep-blue mb-6">Дополнительные услуги</h2>
+            <p className="text-lg text-gray-600">Полный спектр услуг для комфортного отдыха</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+              <CardContent className="p-6 text-center">
+                <Icon name="Gift" size={48} className="mx-auto mb-4 text-orange-accent" />
+                <h3 className="text-xl font-bold text-deep-blue mb-3">Дни рождения</h3>
+                <p className="text-gray-600 mb-4">Организация незабываемых праздников для детей и взрослых</p>
+                <Button asChild variant="outline">
+                  <Link to="/birthday">Подробнее</Link>
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+              <CardContent className="p-6 text-center">
+                <Icon name="Users" size={48} className="mx-auto mb-4 text-orange-accent" />
+                <h3 className="text-xl font-bold text-deep-blue mb-3">Корпоративы</h3>
+                <p className="text-gray-600 mb-4">Тимбилдинг и корпоративные мероприятия любого масштаба</p>
+                <Button asChild variant="outline">
+                  <Link to="/corporate">Подробнее</Link>
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+              <CardContent className="p-6 text-center">
+                <Icon name="Crown" size={48} className="mx-auto mb-4 text-orange-accent" />
+                <h3 className="text-xl font-bold text-deep-blue mb-3">VIP-зона</h3>
+                <p className="text-gray-600 mb-4">Эксклюзивный отдых с персональным сервисом</p>
+                <Button asChild variant="outline">
+                  <Link to="/vip">Подробнее</Link>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Statistics Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-deep-blue to-aqua-blue text-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6">AquaStorm в цифрах</h2>
+            <p className="text-lg opacity-90">Впечатляющие факты о нашем аквапарке</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-orange-accent mb-2">25</div>
+              <div className="text-lg">Водных горок</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-orange-accent mb-2">12</div>
+              <div className="text-lg">Бассейнов</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-orange-accent mb-2">5000</div>
+              <div className="text-lg">Посетителей в день</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-orange-accent mb-2">15000</div>
+              <div className="text-lg">м² площади</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+      <section className="py-20 px-4 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-deep-blue mb-6">Отзывы посетителей</h2>
+            <p className="text-lg text-gray-600">Что говорят о нас наши гости</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="hover:shadow-lg transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="flex text-yellow-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Icon key={i} name="Star" size={16} className="fill-current" />
+                    ))}
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-4">"Потрясающий аквапарк! Горки просто невероятные, особенно Tornado Fury. Дети в восторге!"</p>
+                <div className="font-medium text-deep-blue">Анна К.</div>
+              </CardContent>
+            </Card>
+            <Card className="hover:shadow-lg transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="flex text-yellow-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Icon key={i} name="Star" size={16} className="fill-current" />
+                    ))}
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-4">"Отличное место для семейного отдыха. Чисто, безопасно, персонал очень дружелюбный."</p>
+                <div className="font-medium text-deep-blue">Михаил П.</div>
+              </CardContent>
+            </Card>
+            <Card className="hover:shadow-lg transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="flex text-yellow-400">
+                    {[...Array(5)].map((_, i) => (
+                      <Icon key={i} name="Star" size={16} className="fill-current" />
+                    ))}
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-4">"SPA-зона просто волшебная! После активного дня на горках так приятно расслабиться."</p>
+                <div className="font-medium text-deep-blue">Елена В.</div>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="text-center mt-8">
+            <Button asChild variant="outline">
+              <Link to="/reviews">Все отзывы</Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -150,13 +349,15 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {attractions.map((attraction, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+              <Link key={index} to={attraction.name === 'Детская зона' ? '/kids' : attraction.name === 'Волновой бассейн' ? '/pools' : attraction.name === 'SPA-зона' ? '/spa' : '/pools'}>
+                <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-2 cursor-pointer">
                 <CardContent className="p-6 text-center">
                   <Icon name={attraction.icon} size={48} className="mx-auto mb-4 text-aqua-blue" />
                   <h3 className="text-xl font-bold text-deep-blue mb-3">{attraction.name}</h3>
                   <p className="text-gray-600 text-sm">{attraction.description}</p>
                 </CardContent>
               </Card>
+              </Link>
             ))}
           </div>
         </div>
@@ -186,6 +387,42 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Location & Transport */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-deep-blue mb-6">Как добраться</h2>
+            <p className="text-lg text-gray-600">Удобное расположение в центре города</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="text-center p-6">
+              <Icon name="Car" size={48} className="mx-auto mb-4 text-aqua-blue" />
+              <h3 className="text-xl font-bold text-deep-blue mb-3">На автомобиле</h3>
+              <p className="text-gray-600 mb-4">Бесплатная парковка на 500 мест</p>
+              <Button asChild variant="outline">
+                <Link to="/parking">Схема проезда</Link>
+              </Button>
+            </Card>
+            <Card className="text-center p-6">
+              <Icon name="Train" size={48} className="mx-auto mb-4 text-aqua-blue" />
+              <h3 className="text-xl font-bold text-deep-blue mb-3">На метро</h3>
+              <p className="text-gray-600 mb-4">Станция "Водная" - 5 минут пешком</p>
+              <Button asChild variant="outline">
+                <Link to="/map">Карта</Link>
+              </Button>
+            </Card>
+            <Card className="text-center p-6">
+              <Icon name="Bus" size={48} className="mx-auto mb-4 text-aqua-blue" />
+              <h3 className="text-xl font-bold text-deep-blue mb-3">На автобусе</h3>
+              <p className="text-gray-600 mb-4">Маршруты 15, 23, 45 до остановки "Аквапарк"</p>
+              <Button asChild variant="outline">
+                <Link to="/contacts">Контакты</Link>
+              </Button>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Cafe Section */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">
@@ -196,8 +433,10 @@ const Index = () => {
             <p className="text-lg opacity-90 mb-6">
               Премиальная кухня с панорамным видом на аквапарк. Здоровое питание и освежающие напитки.
             </p>
-            <Button variant="outline" className="border-white text-white hover:bg-white hover:text-aqua-blue">
+            <Button asChild variant="outline" className="border-white text-white hover:bg-white hover:text-aqua-blue">
+              <Link to="/restaurants">
               Посмотреть меню
+              </Link>
             </Button>
           </div>
         </div>
@@ -208,12 +447,14 @@ const Index = () => {
         <div className="max-w-2xl mx-auto">
           <h2 className="text-3xl font-bold mb-6">Готов к экстриму?</h2>
           <p className="text-xl opacity-90 mb-8">Забронируй билеты и окунись в мир водных приключений</p>
-          <Button size="lg" className="bg-orange-accent hover:bg-orange-accent/90 px-8 py-4 text-lg">
+          <Button asChild size="lg" className="bg-orange-accent hover:bg-orange-accent/90 px-8 py-4 text-lg">
+            <Link to="/tickets">
             <Icon name="Ticket" className="mr-2" size={24} />
             Купить билеты онлайн
+            </Link>
           </Button>
         </div>
-      </footer>
+      </section>
     </div>
   );
 };
